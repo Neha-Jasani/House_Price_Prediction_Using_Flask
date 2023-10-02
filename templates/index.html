@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+</head>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+        }
+
+        form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        select, input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            display: inline-block; /* Display elements side by side */
+            border-radius: 5px;
+            margin-right: 2%; /* Add a small margin between elements */
+        }
+
+        /* Clear margin for the last element in each row */
+        select:last-child, input[type="text"]:last-child {
+        margin-right: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+
+<body>
+    <h1>House Price Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="area">Area (sq. ft.):</label>
+        <input type="text" name="area" required><br>
+<br>
+
+        <label for="bedrooms">Bedrooms:</label>
+            <select name="bedrooms" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="bathrooms">Bathrooms:</label>
+            <select name="bathrooms" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+
+<br>
+
+        <label for="stories">Stories:</label>
+            <select name="stories" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="mainroad">Main Road:</label>
+            <select name="mainroad" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="guestroom">Guestroom:</label>
+            <select name="guestroom" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+         <label for="basement">Basement:</label>
+            <select name="basement" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="hotwaterheating">Hotwater Heating:</label>
+            <select name="hotwaterheating" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="airconditioning">Airconditioning:</label>
+            <select name="airconditioning" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="parking">Parking:</label>
+            <select name="parking" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="prearea">Prearea:</label>
+            <select name="prearea" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+<br>
+
+        <label for="furnishingstatus">Furnishingstatus:</label>
+            <select name="furnishingstatus" required>
+                <option value="select">Select</option>
+                <option value="Furnished">Furnished</option>
+                <option value="Semi Furnished">Semi Furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
+            </select><br>
+        <br>
+        <label for="price_per_sqrt">Price Per Sqrt:</label>
+        <input type="text" name="price_per_sqrt" required><br>
+<br>
+        <!DOCTYPE html>
+
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+    <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
